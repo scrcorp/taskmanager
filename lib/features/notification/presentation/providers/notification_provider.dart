@@ -1,4 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/config/app_config.dart';
+import '../../../../core/mock/mock_repositories.dart';
 import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../data/datasources/notification_remote_datasource.dart';
 import '../../data/repositories/notification_repository_impl.dart';
@@ -11,6 +13,7 @@ final notificationRemoteDatasourceProvider =
 });
 
 final notificationRepositoryProvider = Provider<NotificationRepository>((ref) {
+  if (AppConfig.useMockData) return MockNotificationRepository();
   return NotificationRepositoryImpl(
     remoteDatasource: ref.watch(notificationRemoteDatasourceProvider),
   );

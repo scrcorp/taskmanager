@@ -3,6 +3,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 enum Environment { dev, prod }
 
 class AppConfig {
+  /// Set to true to use mock data instead of API calls.
+  /// Toggle this to false when the backend is available.
+  static const bool useMockData = true;
+
   static Environment get environment {
     final env = dotenv.get('ENV', fallback: 'dev');
     return env == 'prod' ? Environment.prod : Environment.dev;

@@ -1,4 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/config/app_config.dart';
+import '../../../../core/mock/mock_repositories.dart';
 import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../data/datasources/assignment_remote_datasource.dart';
 import '../../data/repositories/assignment_repository_impl.dart';
@@ -10,6 +12,7 @@ final assignmentRemoteDatasourceProvider = Provider<AssignmentRemoteDatasource>(
 });
 
 final assignmentRepositoryProvider = Provider<AssignmentRepository>((ref) {
+  if (AppConfig.useMockData) return MockAssignmentRepository();
   return AssignmentRepositoryImpl(remoteDatasource: ref.watch(assignmentRemoteDatasourceProvider));
 });
 

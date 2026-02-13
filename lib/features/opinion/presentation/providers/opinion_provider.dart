@@ -1,4 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/config/app_config.dart';
+import '../../../../core/mock/mock_repositories.dart';
 import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../data/datasources/opinion_remote_datasource.dart';
 import '../../data/repositories/opinion_repository_impl.dart';
@@ -11,6 +13,7 @@ final opinionRemoteDatasourceProvider =
 });
 
 final opinionRepositoryProvider = Provider<OpinionRepository>((ref) {
+  if (AppConfig.useMockData) return MockOpinionRepository();
   return OpinionRepositoryImpl(
     remoteDatasource: ref.watch(opinionRemoteDatasourceProvider),
   );

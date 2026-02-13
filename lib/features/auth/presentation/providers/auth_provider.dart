@@ -1,4 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/config/app_config.dart';
+import '../../../../core/mock/mock_repositories.dart';
 import '../../../../core/network/dio_client.dart';
 import '../../../../core/storage/cache_storage.dart';
 import '../../../../core/storage/token_storage.dart';
@@ -28,6 +30,7 @@ final authRemoteDatasourceProvider = Provider<AuthRemoteDatasource>((ref) {
 });
 
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
+  if (AppConfig.useMockData) return MockAuthRepository();
   final remoteDatasource = ref.watch(authRemoteDatasourceProvider);
   final tokenStorage = ref.watch(tokenStorageProvider);
   return AuthRepositoryImpl(

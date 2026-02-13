@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class TokenStorage {
@@ -20,11 +21,24 @@ class TokenStorage {
   }
 
   Future<String?> getAccessToken() async {
-    return _storage.read(key: _accessTokenKey);
+    try {
+      return await _storage.read(key: _accessTokenKey);
+    } catch (e) {
+      // Web: OperationError from Web Crypto API when stored data is corrupted
+      debugPrint('[TokenStorage] Failed to read access token: $e');
+      await _clearOnError();
+      return null;
+    }
   }
 
   Future<String?> getRefreshToken() async {
-    return _storage.read(key: _refreshTokenKey);
+    try {
+      return await _storage.read(key: _refreshTokenKey);
+    } catch (e) {
+      debugPrint('[TokenStorage] Failed to read refresh token: $e');
+      await _clearOnError();
+      return null;
+    }
   }
 
   Future<void> clearTokens() async {
@@ -37,5 +51,13 @@ class TokenStorage {
   Future<bool> hasTokens() async {
     final token = await getAccessToken();
     return token != null && token.isNotEmpty;
+  }
+
+  Future<void> _clearOnError() async {
+    try {
+      await _storage.deleteAll();
+    } catch (_) {
+      // If even deleteAll fails, nothing more we can do
+    }
   }
 }

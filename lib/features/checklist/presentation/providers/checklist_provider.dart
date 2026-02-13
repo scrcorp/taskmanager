@@ -1,4 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/config/app_config.dart';
+import '../../../../core/mock/mock_repositories.dart';
 import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../data/datasources/checklist_remote_datasource.dart';
 import '../../data/repositories/checklist_repository_impl.dart';
@@ -9,5 +11,6 @@ final checklistRemoteDatasourceProvider = Provider<ChecklistRemoteDatasource>((r
 });
 
 final checklistRepositoryProvider = Provider<ChecklistRepository>((ref) {
+  if (AppConfig.useMockData) return MockChecklistRepository();
   return ChecklistRepositoryImpl(remoteDatasource: ref.watch(checklistRemoteDatasourceProvider));
 });

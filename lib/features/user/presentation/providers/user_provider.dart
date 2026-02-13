@@ -1,4 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../../core/config/app_config.dart';
+import '../../../../core/mock/mock_repositories.dart';
 import '../../../auth/presentation/providers/auth_provider.dart';
 import '../../data/datasources/user_remote_datasource.dart';
 import '../../data/repositories/user_repository_impl.dart';
@@ -10,6 +12,7 @@ final userRemoteDatasourceProvider = Provider<UserRemoteDatasource>((ref) {
 });
 
 final userRepositoryProvider = Provider<UserRepository>((ref) {
+  if (AppConfig.useMockData) return MockUserRepository();
   final datasource = ref.watch(userRemoteDatasourceProvider);
   return UserRepositoryImpl(remoteDatasource: datasource);
 });
