@@ -352,13 +352,13 @@ class _QuickMenuGrid extends StatelessWidget {
         icon: Icons.checklist_rounded,
         label: l10n.checklist_title,
         color: AppColors.success,
-        onTap: () => context.push('/checklist'),
+        onTap: () => context.push('/checklists'),
       ),
       _QuickMenuItem(
         icon: Icons.chat_bubble_outline_rounded,
         label: l10n.home_sendOpinion,
         color: AppColors.warning,
-        onTap: () => context.push('/opinions'),
+        onTap: () => context.push('/opinion'),
       ),
       _QuickMenuItem(
         icon: Icons.notifications_outlined,
@@ -443,7 +443,7 @@ class _OpinionInputSection extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         GestureDetector(
-          onTap: () => context.push('/opinions'),
+          onTap: () => context.push('/opinion'),
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.all(14),

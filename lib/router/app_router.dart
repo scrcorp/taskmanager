@@ -13,8 +13,8 @@ import '../features/notice/presentation/screens/notice_list_screen.dart';
 import '../features/notice/presentation/screens/notice_detail_screen.dart';
 import '../features/notification/presentation/screens/notification_screen.dart';
 import '../features/user/presentation/screens/mypage_screen.dart';
-import '../features/attendance/presentation/screens/attendance_screen.dart';
 import '../features/checklist/presentation/screens/checklist_screen.dart';
+import '../features/opinion/presentation/screens/opinion_screen.dart';
 import '../shared/widgets/adaptive_scaffold.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -112,12 +112,37 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: '/attendance',
         parentNavigatorKey: _rootNavigatorKey,
-        builder: (context, state) => const AttendanceScreen(),
+        builder: (context, state) => Scaffold(
+          appBar: AppBar(title: const Text('Attendance')),
+          body: const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.construction_rounded, size: 64, color: Colors.grey),
+                SizedBox(height: 16),
+                Text(
+                  '준비중입니다',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.grey),
+                ),
+                SizedBox(height: 8),
+                Text(
+                  'Coming Soon',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
       GoRoute(
         path: '/checklists',
         parentNavigatorKey: _rootNavigatorKey,
         builder: (context, state) => const ChecklistScreen(),
+      ),
+      GoRoute(
+        path: '/opinion',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const OpinionScreen(),
       ),
     ],
   );
