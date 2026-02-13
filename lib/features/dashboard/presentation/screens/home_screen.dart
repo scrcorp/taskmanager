@@ -349,10 +349,10 @@ class _QuickMenuGrid extends StatelessWidget {
         onTap: () => context.push('/attendance'),
       ),
       _QuickMenuItem(
-        icon: Icons.checklist_rounded,
-        label: l10n.checklist_title,
+        icon: Icons.assignment_rounded,
+        label: l10n.nav_tasks,
         color: AppColors.success,
-        onTap: () => context.push('/checklists'),
+        onTap: () => context.go('/tasks'),
       ),
       _QuickMenuItem(
         icon: Icons.chat_bubble_outline_rounded,
