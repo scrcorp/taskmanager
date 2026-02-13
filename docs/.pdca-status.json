@@ -1,0 +1,113 @@
+{
+  "version": "2.0",
+  "lastUpdated": "2026-02-13T06:39:22.373Z",
+  "activeFeatures": [
+    "i18n-multilingual"
+  ],
+  "primaryFeature": "i18n-multilingual",
+  "features": {
+    "taskmanager-app": {
+      "phase": "archived",
+      "phaseNumber": 7,
+      "matchRate": 95,
+      "iterationCount": 1,
+      "requirements": [],
+      "documents": {
+        "plan": "docs/archive/2026-02/taskmanager-app/taskmanager-app.plan.md",
+        "design": "docs/archive/2026-02/taskmanager-app/taskmanager-app.design.md",
+        "analysis": "docs/archive/2026-02/taskmanager-app/taskmanager-app.analysis.md",
+        "report": "docs/archive/2026-02/taskmanager-app/taskmanager-app.report.md"
+      },
+      "timestamps": {
+        "started": "2026-02-13T04:25:15.558Z",
+        "lastUpdated": "2026-02-13T06:15:00.000Z",
+        "archivedAt": "2026-02-13T06:15:00.000Z"
+      },
+      "archivedTo": "docs/archive/2026-02/taskmanager-app/"
+    },
+    "i18n-multilingual": {
+      "phase": "act",
+      "phaseNumber": 5,
+      "matchRate": null,
+      "iterationCount": 0,
+      "requirements": [],
+      "documents": {},
+      "timestamps": {
+        "started": "2026-02-13T06:39:22.369Z",
+        "lastUpdated": "2026-02-13T06:39:22.373Z"
+      },
+      "previousPhase": "check",
+      "autoAdvanced": true
+    }
+  },
+  "pipeline": {
+    "currentPhase": 1,
+    "level": "Dynamic",
+    "phaseHistory": []
+  },
+  "session": {
+    "startedAt": "2026-02-13T04:25:15.558Z",
+    "onboardingCompleted": true,
+    "lastActivity": "2026-02-13T06:39:22.373Z"
+  },
+  "history": [
+    {
+      "timestamp": "2026-02-13T04:30:00.000Z",
+      "feature": "taskmanager-app",
+      "phase": "plan",
+      "action": "created"
+    },
+    {
+      "timestamp": "2026-02-13T04:35:00.000Z",
+      "feature": "taskmanager-app",
+      "phase": "design",
+      "action": "created"
+    },
+    {
+      "timestamp": "2026-02-13T04:45:00.000Z",
+      "feature": "taskmanager-app",
+      "phase": "do",
+      "action": "started"
+    },
+    {
+      "timestamp": "2026-02-13T05:30:00.000Z",
+      "feature": "taskmanager-app",
+      "phase": "check",
+      "action": "completed",
+      "details": "Match Rate: 85%"
+    },
+    {
+      "timestamp": "2026-02-13T05:45:00.000Z",
+      "feature": "taskmanager-app",
+      "phase": "act",
+      "action": "iteration_1",
+      "details": "Fixed 8 gaps (2 critical, 6 major)"
+    },
+    {
+      "timestamp": "2026-02-13T05:55:00.000Z",
+      "feature": "taskmanager-app",
+      "phase": "check",
+      "action": "completed",
+      "details": "Match Rate: 95% (passed)"
+    },
+    {
+      "timestamp": "2026-02-13T06:00:00.000Z",
+      "feature": "taskmanager-app",
+      "phase": "report",
+      "action": "completed"
+    },
+    {
+      "timestamp": "2026-02-13T06:15:00.000Z",
+      "feature": "taskmanager-app",
+      "phase": "archived",
+      "action": "archived",
+      "details": "Archived to docs/archive/2026-02/taskmanager-app/"
+    },
+    {
+      "timestamp": "2026-02-13T06:39:22.373Z",
+      "feature": "i18n-multilingual",
+      "phase": "act",
+      "action": "updated"
+    }
+  ]
+}
