@@ -8,11 +8,15 @@ class AppConfig {
   static const bool useMockData = true;
 
   static Environment get environment {
+    if (useMockData) return Environment.dev;
     final env = dotenv.get('ENV', fallback: 'dev');
     return env == 'prod' ? Environment.prod : Environment.dev;
   }
 
-  static String get baseUrl => dotenv.get('BASE_URL');
+  static String get baseUrl {
+    if (useMockData) return 'http://localhost';
+    return dotenv.get('BASE_URL');
+  }
 
   static Duration get connectTimeout => const Duration(seconds: 15);
   static Duration get receiveTimeout => const Duration(seconds: 30);
